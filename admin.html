@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教師管理後台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center text-white">
+
+    <div class="max-w-md w-full p-8 bg-gray-800 rounded-xl shadow-2xl text-center">
+        <h1 className="text-2xl font-bold mb-6">🔒 教師管理區</h1>
+
+        <p class="mb-6 text-gray-400">目前管理功能整合於 Google Sheet。</p>
+
+        <button onclick="checkAuth()"
+            class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg w-full transition font-bold">
+            前往 Google Sheet 管理表格
+        </button>
+
+        <p class="mt-4 text-xs text-gray-500">
+            (此頁面僅為示範，實際管理請直接操作試算表)
+        </p>
+    </div>
+
+    <script>
+        function checkAuth() {
+            const pwd = prompt("請輸入管理密碼：");
+            // Simple mock check
+            if (pwd === "admin") {
+                window.open("https://docs.google.com/spreadsheets/d/13CI6qJI8mDpEpMqV5wjxgzvG2u0jCysdkKxu2nYk5oI/edit", "_blank");
+            } else {
+                alert("密碼錯誤");
+            }
+        }
+    </script>
+</body>
+
+</html>
