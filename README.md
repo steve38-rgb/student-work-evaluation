@@ -13,7 +13,7 @@
 
 ### 第一步：設定 Google Backend (GAS)
 1. 前往 [Google Drive](https://drive.google.com/) 建立一個新的 Google Sheet。
-   - **Sheet ID**: 請確認網址中的 ID 是否為 `13CI6qJI8mDpEpMqV5wjxgzvG2u0jCysdkKxu2nYk5oI` (或修改 `Code.gs` 中的 `SHEET_ID` 為您的新表格 ID)。
+   - **Sheet ID**: 請確認網址中的 ID 是否為(或修改 `Code.gs` 中的 `SHEET_ID` 為您的新表格 ID)。
    - **欄位設定**: 第一列請依序填入：`時間`, `姓名`, `作品內容`, `四字評語`, `文字回饋`。
 
 2. 在 Sheet 中點選 `擴充功能` > `Apps Script`。
@@ -46,3 +46,4 @@
 
 ## 🔒 安全性說明
 - Gemini API Key 已封裝於 GAS 後端，前端只透過 GAS URL 存取，確保安全性。
+
