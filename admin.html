@@ -30,14 +30,25 @@
         </p>
     </div>
 
+    <script src="./js/config.js"></script>
     <script>
-        function checkAuth() {
+        async function checkAuth() {
             const pwd = prompt("請輸入管理密碼：");
-            // Simple mock check
-            if (pwd === "admin") {
-                window.open("https://docs.google.com/spreadsheets/d/13CI6qJI8mDpEpMqV5wjxgzvG2u0jCysdkKxu2nYk5oI/edit", "_blank");
-            } else {
-                alert("密碼錯誤");
+            if (!pwd) return;
+
+            try {
+                // 向後端請求驗證密碼
+                const response = await fetch(`${CONFIG.GAS_API_URL}?action=verifyPassword&password=${encodeURIComponent(pwd)}`);
+                const result = await response.json();
+
+                if (result.status === 'success' && result.authorized) {
+                    window.open("https://docs.google.com/spreadsheets/d/13CI6qJI8mDpEpMqV5wjxgzvG2u0jCysdkKxu2nYk5oI/edit", "_blank");
+                } else {
+                    alert(result.message || "密碼錯誤");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("驗證時發生錯誤，請稍後再試。");
             }
         }
     </script>
